@@ -9,17 +9,13 @@ export const RolesPage = () => {
     const [searchField, setSearchField] = useState("");
 
     const { rolesPaginationQuery,
-        searchTerm,
         setSearchTerm,
         setPage,
         page,
         pageSize,
-        setPageSize,
-        refreshRoles } = useRoles();
+        setPageSize} = useRoles();
 
     const pageSizeOptions = [5, 10 ,20];
-
-    console.log(rolesPaginationQuery.data);
     
     const handleSearchChange = (e : React.ChangeEvent<HTMLInputElement>) => 
     {
@@ -162,7 +158,6 @@ export const RolesPage = () => {
           </div>
         </div>
       </div>
-
     </div>
   )
 }

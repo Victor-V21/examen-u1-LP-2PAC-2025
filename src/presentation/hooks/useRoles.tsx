@@ -69,7 +69,7 @@ export const useRoles = (roleId?: string) => {
         onSuccess: (data) => {
             if(data.status)
             {
-              navigate("/countries")
+              navigate("/roles")
             }
           },
           onError: (data) => {

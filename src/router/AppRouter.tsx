@@ -26,11 +26,11 @@ export const AppRouter = () => {
                     <Route path="/persons" element={<PersonsPage />} />
 
                     {/* Parte del examen */}
-                    <Route path="/roles" element={<RolesPage/>}/>
-                    <Route path="/roles/create" element={<CreateRolePage/>}/>
-                    <Route path="/roles/:roleId/edit" element={<EditRolePage/>}/>
-                    <Route path="/roles/:roleId/delete" element={<DeleteRolePage/>}/>
-                    
+                    <Route path="/roles" element={<RolesPage />} />
+                    <Route path="/roles/create" element={<CreateRolePage />} />
+                    <Route path="/roles/:roleId/edit" element={<EditRolePage />} />
+                    <Route path="/roles/:roleId/delete" element={<DeleteRolePage />} />
+
                 </Route>
             </Routes>
         </div>

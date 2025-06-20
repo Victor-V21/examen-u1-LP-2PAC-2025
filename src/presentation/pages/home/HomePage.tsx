@@ -1,19 +1,18 @@
-import { Globe, Users } from "lucide-react"
+import { Globe, UserCheck2, Users } from "lucide-react"
 import { Title } from "../../components/shared/Title"
 import { DashboardCard } from "../../components/home/DashboardCard"
 import { Loader } from "../../components/shared/Loader"
 import { useStatistics } from "../../hooks/useStatistics"
+import { useRoles } from "../../hooks/useRoles"
 
 export const HomePage = () => {
 
   const { data, isLoading } = useStatistics();
-
+   const { rolesPaginationQuery} = useRoles();
+  
   if(isLoading) {
     return <Loader />
   }
-
-  console.log(data);
-  
 
   return (
     <div>
@@ -32,6 +31,13 @@ export const HomePage = () => {
           to="/persons/create"
           countValue={data?.data?.personsCount || 0}
           icon={<Users size={48} />}
+        />
+
+        <DashboardCard
+          title="Roles"
+          to="/roles/create"
+          countValue={rolesPaginationQuery.data?.data.totalItems || 0}
+          icon={<UserCheck2 size={48} />}
         />
 
       </div>
