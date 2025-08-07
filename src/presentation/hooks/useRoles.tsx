@@ -5,7 +5,6 @@ import { getPaginationRolesAction } from "../../core/actions/roles/get-paginatio
 import { getOneRoleAction } from "../../core/actions/roles/get-one-role.action";
 import { RoleModel } from "../../core/models/role.model";
 import { createRoleAction } from "../../core/actions/roles/create-role.action";
-import { editCountryAction } from "../../core/actions/countries/edit-country.actions";
 import { editRoleAction } from "../../core/actions/roles/edit-role.action";
 import { deleteRoleAction } from "../../core/actions/roles/delete-role.action";
 

@@ -1,0 +1,4 @@
+export enum Role {
+    SYS_ADMIN_EDITADO = "SYS_ADMIN_EDITADO",
+    NORMAL_USER = "NORMAL_USER"
+}

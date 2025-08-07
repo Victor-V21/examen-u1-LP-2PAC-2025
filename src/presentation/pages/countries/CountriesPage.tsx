@@ -43,13 +43,13 @@ export const CountriesPage = () => {
   }
 
   const handlePreviousPage = () => {
-    if (countriesPaginationQuery.data?.data.hasPreviousPage) {
+    if (countriesPaginationQuery.data?.data?.hasPreviousPage) {
       setPage(page - 1)
     }
   }
 
   const handleNextPage = () => {
-    if (countriesPaginationQuery.data?.data.hasNextPage) {
+    if (countriesPaginationQuery.data?.data?.hasNextPage) {
       setPage(page + 1)
     }
   }
@@ -109,7 +109,7 @@ export const CountriesPage = () => {
           </thead>
           <tbody>
             {countriesPaginationQuery.data &&
-              countriesPaginationQuery.data.data.items.map(country => (
+              countriesPaginationQuery.data?.data?.items.map(country => (
                 <tr key={country.id} className="hover:bg-gray-200">
                   {/* <td className="p-2">{country.id}</td> */}
                   <td className="p-2">{country.name}</td>
@@ -131,13 +131,13 @@ export const CountriesPage = () => {
         </table>
         {/* Pagination */}
         <div className="flex flex-row items-center justify-between bg-blue-500">
-          <span className="p-2 text-white">Registros {countriesPaginationQuery.data?.data.totalItems}</span>
+          <span className="p-2 text-white">Registros {countriesPaginationQuery.data?.data?.totalItems}</span>
           <div className="flex flex-row items-center gap-2">
             <button
               onClick={handlePreviousPage}
-              disabled={!countriesPaginationQuery.data?.data.hasPreviousPage}
+              disabled={!countriesPaginationQuery.data?.data?.hasPreviousPage}
               className={`flex flex-row items-center justify-center gap-2 p-2 ${
-                !countriesPaginationQuery.data?.data.hasPreviousPage
+                !countriesPaginationQuery.data?.data?.hasPreviousPage
                 ? "bg-blue-500 text-white rounded-md cursor-not-allowed" 
                 : "bg-blue-500 text-white hover:bg-blue-600 rounded-md cursor-pointer"
               }`} >
@@ -147,7 +147,7 @@ export const CountriesPage = () => {
             <button
               onClick={handleNextPage}
               className={`flex flex-row items-center justify-center gap-2 p-2 ${
-                !countriesPaginationQuery.data?.data.hasNextPage
+                !countriesPaginationQuery.data?.data?.hasNextPage
                 ? "bg-blue-500 text-white rounded-md cursor-not-allowed" 
                 : "bg-blue-500 text-white hover:bg-blue-600 rounded-md cursor-pointer"
               }`} >
