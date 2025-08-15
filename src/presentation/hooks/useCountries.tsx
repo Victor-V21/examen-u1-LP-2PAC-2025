@@ -8,14 +8,14 @@ import { getOneCountryAction } from "../../core/actions/countries/get-one-countr
 import { editCountryAction } from "../../core/actions/countries/edit-country.actions";
 import { deleteCountryAction } from "../../core/actions/countries/delete-country.action";
 
-export const useCountries = (countryId? : string) => {
-  
+export const useCountries = (countryId?: string) => {
+
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
-  
+
   const countriesPaginationQuery = useQuery({
     queryKey: ["countries", page, pageSize, searchTerm], // Unique key 
     queryFn: () => getPaginationCountriesAction(page, pageSize, searchTerm),
@@ -23,7 +23,7 @@ export const useCountries = (countryId? : string) => {
     refetchOnWindowFocus: false,
   });
   //
-  const oneCountryQuery = useQuery (
+  const oneCountryQuery = useQuery(
     {
       queryKey: ["country", countryId],
       queryFn: () => getOneCountryAction(countryId!), //Este valor no va ser nulo en este punto con !
@@ -35,10 +35,9 @@ export const useCountries = (countryId? : string) => {
 
   const createCountryMutation = useMutation(
     {
-      mutationFn: (country : CountryModel) => createCountryAction(country),
+      mutationFn: (country: CountryModel) => createCountryAction(country),
       onSuccess: (data) => {
-        if(data.status)
-        {
+        if (data.status) {
           navigate("/countries")
         }
       },
@@ -49,29 +48,27 @@ export const useCountries = (countryId? : string) => {
   );
 
   const editCountryMutation = useMutation({
-    mutationFn: (country:CountryModel) => editCountryAction(country, countryId!),
+    mutationFn: (country: CountryModel) => editCountryAction(country, countryId!),
     onSuccess: (data) => {
-        if(data.status)
-        {
-          navigate("/countries")
-        }
-      },
-      onError: (data) => {
-        console.log(data);
+      if (data.status) {
+        navigate("/countries")
       }
+    },
+    onError: (data) => {
+      console.log(data);
+    }
   })
 
   const deleteCountryMutation = useMutation({
     mutationFn: () => deleteCountryAction(countryId!),
     onSuccess: (data) => {
-        if(data.status)
-        {
-          navigate("/countries")
-        }
-      },
-      onError: (data) => {
-        console.log(data);
+      if (data.status) {
+        navigate("/countries")
       }
+    },
+    onError: (data) => {
+      console.log(data);
+    }
   })
 
   const refetch = countriesPaginationQuery.refetch;
